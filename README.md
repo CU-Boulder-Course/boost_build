@@ -18,14 +18,6 @@ Builds boost with all runtime link types for both 32 and 64 bit architectures.
 Note: Go for 2 Coffees... the process takes a long time.
 It will output the .DLLs and .LIBs up one level from the current path (eg. d:\sdk\bin...) at "bin\x86" (for 32 bit) and "bin\x64" (for 64 bit).
 
-## build_boost_1_59_0_vs2017_win32_x64.bat
-### Instructions for 1.59.0 boost & Visual Studio 2017
-
-```shell
-cd A:\sources\libs\boost_1_59_0
-build_boost_1_59_0_vs2017_win32_x64.bat
-```
-
 ### Next Steps - Linking Boost With Visual Studio 2017
 1. Add headers
 	- Go to Solution Explorer -> Properties -> C/C++ -> General
