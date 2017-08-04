@@ -10,15 +10,15 @@ ECHO ###########################################################################
 REM Save a copy of current directory
 SET MYPATH="%CD%"
 
-REM There are different letters you can use like f for "full path name", d for drive letter, p for path, 
-REM and they can be combined. %~ is the beginning for each of those sequences and a number I denotes it 
-REM works on the parameter %I (where %0 is the complete name of the batch file, just like you assumed)
-
 REM Change directory to directory of batch file resides
-cd "%~dp0"
+cd "%%~dp0"
 if exist .\b2.exe del .\b2.exe
 if exist .\bjam.exe del .\bjam.exe
 call .\bootstrap.bat
+ECHO using mpi ; >> project-config.jam
+if exist .\tools\build\src\tools\mpi.jam MOVE .\tools\build\src\tools\mpi.jam .\tools\build\src\tools\mpi.jam_backup 
+COPY E:\Softwares\boost_build\mpi.jam .\tools\build\src\tools
+
 if exist .\bin.v2 rmdir .\bin.v2 /s/q
 if exist ..\bin rmdir ..\bin /s/q
 ECHO ###############################################################################
