@@ -26,6 +26,7 @@ ECHO ########## -BUILDING BOOST LIBRARIES 32bit **RUNTIME-LINK = ALL**- ########
 ECHO ###############################################################################
 if exist .\stage_x86 rmdir .\stage_x86 /s/q
 b2.exe --toolset=msvc-14.1 --clean-all
+call "C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\vcvarsall.bat" x86
 b2.exe --toolset=msvc-14.1 architecture=x86 address-model=32 --stagedir=".\stage_x86" threading=multi --build-type=complete stage
 if not exist ..\bin\x86 md ..\bin\x86
 move /y .\stage_x86\lib\*.* ..\bin\x86
@@ -36,6 +37,7 @@ ECHO ########## -BUILDING BOOST LIBRARIES 64bit **RUNTIME-LINK = ALL**- ########
 ECHO ###############################################################################
 if exist .\stage_x64 rmdir \stage_x64 /s/q
 b2.exe --toolset=msvc-14.1 --clean-all
+call "C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\vcvarsall.bat" x64
 b2.exe --toolset=msvc-14.1 architecture=x86 address-model=64 --stagedir=".\stage_x64" threading=multi --build-type=complete stage
 if not exist .\stage md .\stage
 if not exist ..\bin\x64 md ..\bin\x64
