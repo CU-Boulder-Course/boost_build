@@ -7,11 +7,14 @@ set start=%time%
 ECHO ###############################################################################
 ECHO ########################## -BUILDING BJAM BINARIES- ###########################
 ECHO ###############################################################################
+REM Save a copy of current directory
 SET MYPATH="%CD%"
 
 REM There are different letters you can use like f for "full path name", d for drive letter, p for path, 
 REM and they can be combined. %~ is the beginning for each of those sequences and a number I denotes it 
 REM works on the parameter %I (where %0 is the complete name of the batch file, just like you assumed)
+
+REM Change directory to directory of batch file resides
 cd "%~dp0"
 if exist .\b2.exe del .\b2.exe
 if exist .\bjam.exe del .\bjam.exe
