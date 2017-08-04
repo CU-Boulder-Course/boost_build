@@ -5,13 +5,13 @@ Easily build the boost library on last VS release, no pain
 
 ### Description
 Windows batch script to build the boost library.
-Builds boost with all runtime link types for both 32 and 64 bit architectures.
+Builds boost with all runtime link types for both 32 and 64 bit architectures. MPI support is added.
 
 ### Versions
 - Tested with 1.59.0 (build_boost_1_59_0_vs2017_win32_x64.bat)
 
 ### Instructions
-1. Copy the .bat file inside boost's directory (eg C:\boost_1_59_0).
+1. Copy the .bat file and mpi.jam file inside boost's directory (eg C:\boost_1_59_0).
 
 2. **Using Visual Studio 2017's Developer Command Prompt** (found in "Windows' Start"\All Programs\Visual Studio 2017\Visual Studio Tools), go to the boost root directory (eg. C:\boost_1_59_0) and call-execute to bat provided in this repo build_boost_1_59_0_vs2017_win32_x64.bat.
 
