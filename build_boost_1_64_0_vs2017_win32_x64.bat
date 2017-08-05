@@ -22,7 +22,7 @@ if exist .\tools\build\src\tools\mpi.jam MOVE .\tools\build\src\tools\mpi.jam .\
 COPY E:\Softwares\boost_build\mpi.jam .\tools\build\src\tools
 
 ECHO ###############################################################################
-ECHO ########## -BUILDING BOOST LIBRARIES 32bit **RUNTIME-LINK = ALL**- ############
+ECHO ########## -BUILDING BOOST LIBRARIES **RUNTIME-LINK = ALL**- ############
 ECHO ###############################################################################
 b2.exe --toolset=msvc-14.1 --clean-all
 b2.exe --build-dir="C:\Program Files\boost\boost_1_64_0" --toolset=msvc-14.1 --build-type=complete stage
