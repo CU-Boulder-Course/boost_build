@@ -15,7 +15,7 @@ SET MYPATH="%CD%"
 REM Change directory to directory of batch file resides
 if exist .\b2.exe del .\b2.exe
 if exist .\bjam.exe del .\bjam.exe
-call .\bootstrap.bat
+call .\bootstrap.bat --prefix="C:\Program Files\boost\boost_1_64_0"
 ECHO using mpi ; >>project-config.jam
 
 if exist .\tools\build\src\tools\mpi.jam MOVE .\tools\build\src\tools\mpi.jam .\tools\build\src\tools\mpi.jam_backup 
