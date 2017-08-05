@@ -26,8 +26,8 @@ ECHO ########## -BUILDING BOOST LIBRARIES **RUNTIME-LINK = ALL**- ############
 ECHO ###############################################################################
 if exist .\build_dir rmdir .\build_dir /s/q
 b2.exe --toolset=msvc-14.1 --clean-all
-b2.exe --prefix="C:\Program Files\boost\boost_1_64_0" --build-dir=".\build_dir" --toolset=msvc-14.1 --build-type=complete stage
-b2.exe install
+b2.exe --build-dir=".\build_dir" --toolset=msvc-14.1 --build-type=complete stage
+b2.exe --prefix="C:\Program Files\boost\boost_1_64_0" install
 
 CD %MYPATH%
 
