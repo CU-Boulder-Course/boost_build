@@ -19,7 +19,7 @@ call .\bootstrap.bat
 ECHO using mpi ; >>project-config.jam
 
 if exist .\tools\build\src\tools\mpi.jam MOVE .\tools\build\src\tools\mpi.jam .\tools\build\src\tools\mpi.jam_backup 
-COPY E:\Softwares\boost_build\mpi.jam .\tools\build\src\tools
+COPY D:\Github\boost_build\mpi.jam .\tools\build\src\tools
 
 ECHO ###############################################################################
 ECHO ########## -BUILDING BOOST LIBRARIES **RUNTIME-LINK = ALL**- ############
