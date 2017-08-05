@@ -26,6 +26,7 @@ ECHO ########## -BUILDING BOOST LIBRARIES **RUNTIME-LINK = ALL**- ############
 ECHO ###############################################################################
 b2.exe --toolset=msvc-14.1 --clean-all
 b2.exe --build-dir="C:\Program Files\boost\boost_1_64_0" --toolset=msvc-14.1 --build-type=complete stage
+b2.exe install
 
 CD %MYPATH%
 
