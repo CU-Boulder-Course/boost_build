@@ -15,7 +15,7 @@ SET MYPATH="%CD%"
 REM Change directory to directory of batch file resides
 if exist .\b2.exe del .\b2.exe
 if exist .\bjam.exe del .\bjam.exe
-call .\bootstrap.bat --prefix="C:\Program Files\boost\boost_1_64_0"
+call .\bootstrap.bat
 ECHO using mpi ; >>project-config.jam
 
 if exist .\tools\build\src\tools\mpi.jam MOVE .\tools\build\src\tools\mpi.jam .\tools\build\src\tools\mpi.jam_backup 
@@ -24,8 +24,9 @@ COPY E:\Softwares\boost_build\mpi.jam .\tools\build\src\tools
 ECHO ###############################################################################
 ECHO ########## -BUILDING BOOST LIBRARIES **RUNTIME-LINK = ALL**- ############
 ECHO ###############################################################################
+if exist .\build_dir rmdir .\build_dir /s/q
 b2.exe --toolset=msvc-14.1 --clean-all
-b2.exe --build-dir="C:\Program Files\boost\boost_1_64_0" --toolset=msvc-14.1 --build-type=complete stage
+b2.exe --prefix="C:\Program Files\boost\boost_1_64_0" --build-dir=".\build_dir" --toolset=msvc-14.1 --build-type=complete stage
 b2.exe install
 
 CD %MYPATH%
