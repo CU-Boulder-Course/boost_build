@@ -1,5 +1,5 @@
 # Easily build boost on Visual Studio 2017
-Notice mpi support is added, that requires pre-installation of Windows MPI pbak (https://msdn.microsoft.com/en-us/library/bb524831(v=vs.85).aspx), then configure the `mpi.jam` file. There is an example of `mpi.jam` under this directory. Also add `using mpi ;` to the end of project configuration file `project-config.jam`.
+Notice mpi support is added, that requires pre-installation of Windows MPI pack (https://msdn.microsoft.com/en-us/library/bb524831(v=vs.85).aspx), then configure the `mpi.jam` file. There is an example of `mpi.jam` under this directory. Also add `using mpi ;` to the end of project configuration file `project-config.jam`.
 
 ### Description
 Windows batch script to build the boost library.
