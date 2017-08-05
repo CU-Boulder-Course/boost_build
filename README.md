@@ -9,7 +9,7 @@ Builds boost with all runtime link types for both 32 and 64 bit architectures. M
 - Tested with 1.64.0 (build_boost_1_64_0_vs2017_win32_x64.bat)
 
 ### Instructions
-1. Notice in the batch file, `--prefix` is set to be `--prefix=C:\Program Files\boost\boost_1_64_0`, change it accordingly.
+1. Notice in the batch file, `--prefix` is set to be `--prefix="C:\Program Files\boost\boost_1_64_0"`, change it accordingly.
 
 2. MPI configuration example is under `E:\Softwares\boost_build\mpi.jam` on my computer, change it accordingly.
 
