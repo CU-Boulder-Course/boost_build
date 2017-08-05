@@ -34,6 +34,7 @@ ECHO option.set keep-going : false ;>> project-config.jam
 ECHO.>>project-config.jam
 ECHO using mpi ; >>project-config.jam
 
+call "C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\vcvarsall.bat" x86
 b2.exe --toolset=msvc-14.1 --clean-all
 b2.exe --toolset=msvc-14.1 architecture=x86 address-model=32 --stagedir=".\stage_x86" threading=multi --build-type=complete stage
 
@@ -52,6 +53,7 @@ ECHO option.set keep-going : false ;>> project-config.jam
 ECHO.>>project-config.jam
 ECHO using mpi ; >>project-config.jam
 
+call "C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\vcvarsall.bat" x64
 b2.exe --toolset=msvc-14.1 --clean-all
 b2.exe --toolset=msvc-14.1 architecture=x86 address-model=64 --stagedir=".\stage_x64" threading=multi --build-type=complete stage
 
