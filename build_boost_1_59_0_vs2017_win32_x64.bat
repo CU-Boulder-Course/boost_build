@@ -11,11 +11,10 @@ REM Save a copy of current directory
 SET MYPATH="%CD%"
 
 REM Change directory to directory of batch file resides
-cd "%%~dp0"
 if exist .\b2.exe del .\b2.exe
 if exist .\bjam.exe del .\bjam.exe
 call .\bootstrap.bat
-ECHO using mpi ; >> project-config.jam
+
 if exist .\tools\build\src\tools\mpi.jam MOVE .\tools\build\src\tools\mpi.jam .\tools\build\src\tools\mpi.jam_backup 
 COPY E:\Softwares\boost_build\mpi.jam .\tools\build\src\tools
 
@@ -25,7 +24,16 @@ ECHO ###########################################################################
 ECHO ########## -BUILDING BOOST LIBRARIES 32bit **RUNTIME-LINK = ALL**- ############
 ECHO ###############################################################################
 if exist .\stage_x86 rmdir .\stage_x86 /s/q
-call "C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\vcvarsall.bat" x86
+REM Update project-config.jam
+if exist .\project-config.jam del .\project-config.jam
+ECHO import option ;> project-config.jam
+ECHO.>>project-config.jam
+ECHO using msvc : 14.1 : "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.10.25017\bin\HostX86\x86\cl.exe" ;>> project-config.jam
+ECHO.>>project-config.jam
+ECHO option.set keep-going : false ;>> project-config.jam
+ECHO.>>project-config.jam
+ECHO using mpi ; >>project-config.jam
+
 b2.exe --toolset=msvc-14.1 --clean-all
 b2.exe --toolset=msvc-14.1 architecture=x86 address-model=32 --stagedir=".\stage_x86" threading=multi --build-type=complete stage
 
@@ -34,7 +42,16 @@ ECHO ###########################################################################
 ECHO ########## -BUILDING BOOST LIBRARIES 64bit **RUNTIME-LINK = ALL**- ############
 ECHO ###############################################################################
 if exist .\stage_x64 rmdir \stage_x64 /s/q
-call "C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\vcvarsall.bat" x64
+REM Update project-config.jam
+if exist .\project-config.jam del .\project-config.jam
+ECHO import option ;> project-config.jam
+ECHO.>>project-config.jam
+ECHO using msvc : 14.1 : "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.10.25017\bin\HostX64\x64\cl.exe" ;>> project-config.jam
+ECHO.>>project-config.jam
+ECHO option.set keep-going : false ;>> project-config.jam
+ECHO.>>project-config.jam
+ECHO using mpi ; >>project-config.jam
+
 b2.exe --toolset=msvc-14.1 --clean-all
 b2.exe --toolset=msvc-14.1 architecture=x86 address-model=64 --stagedir=".\stage_x64" threading=multi --build-type=complete stage
 
