@@ -1,8 +1,6 @@
 @ECHO OFF
 SETLOCAL
 
-REM Go to the directory tools\build\
-
 REM time measurement start
 set start=%time%
 
